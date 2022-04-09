@@ -2,7 +2,7 @@ import { ChainId } from '@beland/schemas'
 import { WalletLinkConnector as BaseWalletLinkConnector } from '@web3-react/walletlink-connector'
 import { RPC_URLS } from './NetworkConnector'
 
-const APP_NAME = 'Decentraland'
+const APP_NAME = 'Beland'
 
 // Coinbase connector to connect a wallet with the Coinbase mobile wallet
 export class WalletLinkConnector extends BaseWalletLinkConnector {

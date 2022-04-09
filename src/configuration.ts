@@ -8,7 +8,7 @@ const configuration = Object.freeze({
 
   [ProviderType.WALLET_CONNECT]: {
     urls: {
-      [ChainId.ETHEREUM_MAINNET]: 'https://rpc.kardiachain.io'
+      [ChainId.KAI_MAINNET]: 'https://rpc.kardiachain.io'
     }
   }
 })

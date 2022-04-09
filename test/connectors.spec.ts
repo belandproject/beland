@@ -4,7 +4,6 @@ import { ChainId } from '@beland/schemas/dist/dapps/chain-id'
 import { ProviderType } from '@beland/schemas/dist/dapps/provider-type'
 import {
   InjectedConnector,
-  FortmaticConnector,
   NetworkConnector,
   WalletConnectConnector,
   WalletLinkConnector
@@ -34,35 +33,35 @@ describe('connectors', () => {
     })
   })
 
-  describe('FortmaticConnector', () => {
-    describe('#constructor', () => {
-      it('should call super with the Fortmatic configuration for the supplied chain id', async () => {
-        const chainId = ChainId.ETHEREUM_ROPSTEN
-        const apiKey = 'test-api-key'
+  // describe('FortmaticConnector', () => {
+  //   describe('#constructor', () => {
+  //     it('should call super with the Fortmatic configuration for the supplied chain id', async () => {
+  //       const chainId = ChainId.ETHEREUM_ROPSTEN
+  //       const apiKey = 'test-api-key'
 
-        const mockConfiguration = {
-          ...configuration,
-          [ProviderType.FORTMATIC]: {
-            ...configuration[ProviderType.FORTMATIC],
-            apiKeys: {
-              ...configuration[ProviderType.FORTMATIC].apiKeys,
-              [chainId]: apiKey
-            }
-          }
-        }
-        const configurationStub = sinon
-          .stub(configurationMethods, 'getConfiguration')
-          .returns(mockConfiguration)
+  //       const mockConfiguration = {
+  //         ...configuration,
+  //         [ProviderType.FORTMATIC]: {
+  //           ...configuration[ProviderType.FORTMATIC],
+  //           apiKeys: {
+  //             ...configuration[ProviderType.FORTMATIC].apiKeys,
+  //             [chainId]: apiKey
+  //           }
+  //         }
+  //       }
+  //       const configurationStub = sinon
+  //         .stub(configurationMethods, 'getConfiguration')
+  //         .returns(mockConfiguration)
 
-        const connector = new FortmaticConnector(chainId)
+  //       const connector = new FortmaticConnector(chainId)
 
-        expect(await connector.getChainId()).to.eq(chainId)
-        expect(await connector.getApiKey()).to.eq(apiKey)
+  //       expect(await connector.getChainId()).to.eq(chainId)
+  //       expect(await connector.getApiKey()).to.eq(apiKey)
 
-        configurationStub.restore()
-      })
-    })
-  })
+  //       configurationStub.restore()
+  //     })
+  //   })
+  // })
 
   describe('NetworkConnector', () => {
     describe('#constructor', () => {
@@ -101,9 +100,7 @@ describe('connectors', () => {
         expect(connector.getQrCode()).to.eq(true)
         expect(connector.getPollingInterval()).to.eq(150000)
         expect(connector.supportedChainIds).to.deep.eq([
-          ChainId.ETHEREUM_MAINNET,
-          ChainId.ETHEREUM_ROPSTEN,
-          ChainId.ETHEREUM_RINKEBY,
+          ChainId.KAI_MAINNET,
           ChainId.ETHEREUM_KOVAN
         ])
 

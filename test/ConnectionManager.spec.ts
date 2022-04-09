@@ -6,7 +6,6 @@ import { ProviderType } from '@beland/schemas/dist/dapps/provider-type'
 import { getConfiguration } from '../src/configuration'
 import { ConnectionManager, connection } from '../src/ConnectionManager'
 import {
-  FortmaticConnector,
   InjectedConnector,
   WalletConnectConnector,
   WalletLinkConnector
@@ -328,14 +327,14 @@ describe('ConnectionManager', () => {
       ).to.throw(`Invalid provider ${providerType}`)
     })
 
-    it('should return an instance of FortmaticConnector for the supplied chain', () => {
-      const connector = connectionManager.buildConnector(
-        ProviderType.FORTMATIC,
-        chainId
-      )
-      expect(connector).to.be.instanceOf(FortmaticConnector)
-      return expect(connector.getChainId()).to.eventually.eq(chainId)
-    })
+    // it('should return an instance of FortmaticConnector for the supplied chain', () => {
+    //   const connector = connectionManager.buildConnector(
+    //     ProviderType.FORTMATIC,
+    //     chainId
+    //   )
+    //   expect(connector).to.be.instanceOf(FortmaticConnector)
+    //   return expect(connector.getChainId()).to.eventually.eq(chainId)
+    // })
 
     it('should return an instance of InjectedConnector for the supplied chain', () => {
       const connector = connectionManager.buildConnector(
@@ -357,12 +356,7 @@ describe('ConnectionManager', () => {
       connector.walletConnectProvider = getSendableProvider(chainId)
 
       expect(connector).to.be.instanceOf(WalletConnectConnector)
-      expect(connector.supportedChainIds).to.deep.eq([
-        ChainId.ETHEREUM_MAINNET,
-        ChainId.ETHEREUM_ROPSTEN,
-        ChainId.ETHEREUM_RINKEBY,
-        ChainId.ETHEREUM_KOVAN
-      ])
+      expect(connector.supportedChainIds).to.deep.eq([ChainId.KAI_MAINNET])
     })
 
     it('should return an instance of WalletLinkConnector', () => {
