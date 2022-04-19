@@ -290,11 +290,7 @@ describe('ConnectionManager', () => {
 
   describe('#getAvailableProviders', () => {
     it('should return an array with the provider types', () => {
-      expect(connectionManager.getAvailableProviders()).to.deep.eq([
-        ProviderType.FORTMATIC,
-        ProviderType.WALLET_CONNECT,
-        ProviderType.WALLET_LINK
-      ])
+      expect(connectionManager.getAvailableProviders()).to.deep.eq([ProviderType.INJECTED])
     })
 
     it('should add the INJECTED provider if window.ethereum exists', () => {
@@ -302,10 +298,7 @@ describe('ConnectionManager', () => {
       browser.window = { ethereum: true }
 
       expect(connectionManager.getAvailableProviders()).to.deep.eq([
-        ProviderType.INJECTED,
-        ProviderType.FORTMATIC,
-        ProviderType.WALLET_CONNECT,
-        ProviderType.WALLET_LINK
+        ProviderType.INJECTED
       ])
 
       browser.window = undefined

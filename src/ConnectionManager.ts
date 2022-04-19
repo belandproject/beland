@@ -57,15 +57,7 @@ export class ConnectionManager {
   }
 
   getAvailableProviders(): ProviderType[] {
-    const available = [
-      ProviderType.FORTMATIC,
-      ProviderType.WALLET_CONNECT,
-      ProviderType.WALLET_LINK
-    ]
-    if (typeof window !== 'undefined' && window.ethereum !== undefined) {
-      available.unshift(ProviderType.INJECTED)
-    }
-    return available
+    return [ProviderType.INJECTED]
   }
 
   async disconnect() {
