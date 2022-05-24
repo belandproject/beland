@@ -3,7 +3,7 @@ export declare function getConfiguration(): Readonly<{
     injected: {};
     wallet_connect: {
         urls: {
-            27: string;
+            24: string;
         };
     };
 }>;
