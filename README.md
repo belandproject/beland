@@ -1,4 +1,4 @@
-# Beland Connect
+# Memetaverse Connect
 
 Connect to the Ethereum network with ease
 
